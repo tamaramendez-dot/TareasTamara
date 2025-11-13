@@ -1,8 +1,8 @@
 # TareasTamara
 
-**Tamara Méndez**  
-**UEA:** Desarrollo Web y Programación  
-**Licenciatura:** Ingeniería en Sistemas Computacionales  
+**Tamara Méndez Hernández**  
+**UEA:** Producción y Comunicación
+**Licenciatura:** Arte y Comunicación Digitales 
 
 ---
 
