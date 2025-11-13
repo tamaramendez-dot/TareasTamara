@@ -1,0 +1,5 @@
+{
+  "acciones": ["flexiona", "gira", "estira", "levanta"],
+  "partes": ["brazo", "pierna", "cabeza", "pie", "mano"],
+  "lados": ["izquierd", "derech"]
+}

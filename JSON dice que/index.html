@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Instrucciones de movimiento</title>
+</head>
+<body>
+  <h1>Ejercicio: JSON y movimientos corporales</h1>
+  
+  <p id="instruccion"></p>
+
+  <script>
+    fetch('movimientos.json')
+      .then(respuesta => respuesta.json())
+      .then(datos => {
+        // Elegimos un elemento aleatorio de cada categoría
+        const accion = datos.acciones[Math.floor(Math.random() * datos.acciones.length)];
+        const parte = datos.partes[Math.floor(Math.random() * datos.partes.length)];
+        const lado = datos.lados[Math.floor(Math.random() * datos.lados.length)];
+
+        // Definimos el género de cada parte del cuerpo
+        const generos = {
+          "brazo": "m",
+          "pierna": "f",
+          "cabeza": "f",
+          "pie": "m",
+          "mano": "f"
+        };
+
+        // Determinamos el artículo correcto según el género
+        const articulo = generos[parte] === "m" ? "el" : "la";
+
+        // Ajustamos el lado (izquierdo/izquierda, derecho/derecha)
+        const ladoCorrecto = generos[parte] === "m" ? lado + "o" : lado + "a";
+
+        // Creamos la instrucción final
+        const instruccion = `El archivo JSON dice que: ${accion} ${articulo} ${parte} ${ladoCorrecto}.`;
+
+        // Mostramos la instrucción en el HTML
+        document.getElementById("instruccion").textContent = instruccion;
+      })
+      .catch(error => console.error("Error al cargar el archivo JSON:", error));
+  </script>
+</body>
+</html>
