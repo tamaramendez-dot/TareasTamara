@@ -2,6 +2,7 @@
 
 **Tamara Méndez Hernández**  
 **UEA:** Producción y Comunicación
+
 **Licenciatura:** Arte y Comunicación Digitales 
 
 ---
