@@ -24,7 +24,7 @@ El repositorio está organizado de la siguiente manera:
 - Dentro de `VSC` hay subcarpetas para cada ejercicio:
   - `p5 dibujo`: ejercicios de animación y dibujo con p5.js  
   - `JSON dice que`: ejercicios de manipulación de JSON y generación de instrucciones  
-  - `[nuevo-ejercicio]`: futuras prácticas y ejercicios  
+  
 
 Cada subcarpeta contiene todos los archivos necesarios (`.html`, `.css`, `.js`, `.json`) para ejecutar los proyectos de forma independiente. Esta estructura permite:
 
