@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos desde Supabase</title>
+
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+
+        #contenedor {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .item {
+            padding: 12px 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s ease;
+        }
+
+        .item:hover {
+            background: #dfe6e9;
+            transform: translateX(4px);
+        }
+
+        .numero {
+            font-weight: bold;
+            color: #0984e3;
+            font-size: 1.2rem;
+        }
+
+        .texto {
+            color: #2d3436;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Inventario para Navidad</h1>
+
+    <div id="contenedor">
+        <div id="lista">Cargando datos...</div>
+    </div>
+
+    <script type="module">
+        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+        const supabaseUrl = "https://yapbxkphscaerwpofnqp.supabase.co";
+        const supabaseKey = "sb_publishable_Ds47rIcGGJmW9EC_PLfzkw_gL8TovaW";
+
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        async function obtenerDatos() {
+            const { data, error } = await supabase
+                .from("datos_navidad")
+                .select("*");
+
+            console.log("Datos obtenidos:", data);
+
+            const contenedor = document.getElementById("lista");
+            contenedor.innerHTML = "";
+
+            data.forEach(item => {
+                contenedor.innerHTML += `
+                    <div class="item">
+                        <span class="numero">${item.numero}</span>
+                        <span class="texto">${item.texto}</span>
+                    </div>
+                `;
+            });
+        }
+
+        obtenerDatos();
+    </script>
+
+</body>
+</html>
